@@ -1,0 +1,22 @@
+#!/bin/bash
+#Temperature calibrated Horn Astronomy data plots
+#HISTORY
+#18DEC10 GIL 1st version with comments
+
+# find the plotting program
+if [ -e t.py ]
+then
+    python t.py "$@"
+else
+    if [ -e ~/bin/t.py ]
+    then
+       python ~/bin/t.py "$@"
+    else  
+       if [ -e ~/Research/analyze/t.py ]
+       then
+       	  python ~/Research/analyze/t.py "$@"
+       else  
+          echo "Can not find Temperature plotting python program: t.py" 
+       fi
+    fi
+fi  # end else not in current directory

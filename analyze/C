@@ -1,0 +1,24 @@
+#!/bin/bash
+#Median filter calibrate Horn Astronomy data
+#HISTORY
+#18DEC11 GIL Moved help inside c.py
+#18DEC10 GIL 1st version with comments
+
+# if the python program is local, execute it
+if [ -e ./c.py ]
+then
+   python ./c.py "$@"
+else
+# if python is in the bin directory, execute that
+    if [ -e ~/bin/c.py ]
+    then
+	python ~/bin/c.py "$@"
+    else
+	if [ -e ../c.py ]
+	then
+       	    python ../c.py "$@"
+	else
+	    print "Can not find Calibration plotting python program: c.py" 
+	fi
+    fi
+fi  # end else not in current directory

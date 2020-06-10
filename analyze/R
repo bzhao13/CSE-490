@@ -1,0 +1,23 @@
+#!/bin/bash
+#Plot Raw Horn Astronomy data
+#HISTORY
+#18MAR25 GIL Clean up documentation
+#18DEC10 GIL 1st version with comments
+
+# find the plotting program
+if [ -e r.py ]
+then
+    python r.py "$@"
+else
+    if [ -e ~/bin/r.py ]
+    then
+       python ~/bin/r.py "$@"
+    else  
+       if [ -e ~/Research/analyze/r.py ]
+       then
+       	  python ~/Research/analyze/r.py "$@"
+       else  
+          echo "Can not file Raw plotting python program: r.py"
+       fi
+    fi
+fi  # end else not in current directory
